@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.getJSON("../resources/bookmarks.json",function(data){
+    $.getJSON("./resources/bookmarks.json",function(data){
         $.each(data,function(index,element){
             var content = "<div><p class="+"name"+">"+element.title+"</p>"+"<p class="+"ctime"+">"+"Created @ "+unixToDate(element.created)+"</p></div>";
             $("#content").append(content);
