@@ -25,7 +25,7 @@ function textChanged(){
     var children = $("#content div").children(".name").each(function(){
         var p_content = $(this).text();
 		var reg = new RegExp("("+text+")","gi");
-        if(p_content_lower.indexOf(text_lower) >=0 ){
+        if(p_content.match(reg)){
             $(this).html( $(this).html().replace(reg,"<span class='highlight'>$1</span>"));  
         }
         else{
