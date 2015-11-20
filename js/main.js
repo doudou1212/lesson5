@@ -17,15 +17,15 @@ function unixToDate(time) {
 }
 function textChanged(){
     var text = $("#search-content").val();
-    $("span").each(function(){
-        var tmp=$(this).html();
-        $(this).replaceWith(tmp);
+    $("p").each(function(){
+        var innerHtml = $(this)[0].innerHTML.replace(/<.*?>/ig,"");
+        $(this)[0].innerHTML = innerHtml;
     });
     $("#content div").show();
     var children = $("#content div").children(".name").each(function(){
         var p_content = $(this).text();
 		var reg = new RegExp("("+text+")","gi");
-        if(p_content.match(reg)){
+        if(p_content_lower.indexOf(text_lower) >=0 ){
             $(this).html( $(this).html().replace(reg,"<span class='highlight'>$1</span>"));  
         }
         else{
