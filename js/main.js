@@ -26,8 +26,9 @@ function textChanged(){
         var p_content = $(this).text();
         var text_lower = text.toLowerCase();
         var p_content_lower = p_content.toLowerCase();
+		var reg = new RegExp("("+text+")","gi");
         if(p_content_lower.indexOf(text_lower) >=0 ){
-            $(this).html( $(this).html().replace(eval("/"+text+"/gi"),"<span class='highlight'>"+text+"</span>"));
+            $(this).html( $(this).html().replace(reg,"<span class='highlight'>$1</span>"));  
         }
         else{
             $(this).parent().hide();
